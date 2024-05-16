@@ -23,7 +23,7 @@ ParaHAT is tested to work under:
 
 ### Installation
 
-For a detailed installation process, please refer to the ParaHAT's GitHub documentation at \url{https://github.com/xzyschumacher/ParaHAT}
+For a detailed installation process, please refer to the ParaHAT's GitHub documentation at https://github.com/xzyschumacher/ParaHAT
 
 ### Usage
 
@@ -31,12 +31,16 @@ ParaHAT consists of two parts: indexing and alignment.
 
 **Makefile.**
 
+```
 $ make clean
 $ make
+```
 
 **Indexing.**
 
-\$ ./ParaHAT-indexer [-k $k$-merSize] <HashIndexDir> <Reference>
+```c
+$ ./ParaHAT-indexer [-k $k$-merSize] <HashIndexDir> <Reference>
+```
 
 **Alignment.**
 
@@ -51,27 +55,31 @@ The basic parameters remain consistent with the original rHAT algorithm. The num
 
 **./ParaHAT-indexer:**
 
+```
 -k: the size of the $k$-mers used for indexing in reference genome.[13]
+```
 
+**./PararHAT-aligner:**
 
-\textbf{./PararHAT-aligner:} 
+```
+-n: the number of nodes used for multi-node running.
 
-  * \texttt{-n: the number of nodes used for multi-node running.}
+-w: the max allowed number of windows hit by a $k$-mer.[1000]
 
-  * \texttt{-w: the max allowed number of windows hit by a $k$-mer.[1000]}
+-m: the max number of candidates for extension.[5]
 
-  * \texttt{-m: the max number of candidates for extension.[5]}
+-k: the size of the $k$-mer used for generating short token matches in reads.[13]
 
-  * \texttt{-k: the size of the $k$-mer used for generating short token matches in reads.[13]}
+-a: score of match for the alignments in extension phase.[1]
 
-  * \texttt{-a: score of match for the alignments in extension phase.[1]}
+-b: mismatch penalty for the alignments in extension phase.[5]
 
-  * \texttt{-b: mismatch penalty for the alignments in extension phase.[5]}
+-q: gap open penalty for the alignments in extension phase.[2]
 
-  * \texttt{-q: gap open penalty for the alignments in extension phase.[2]}
+-r: gap extension penalty for the alignments in extension phase.[1]
 
-  * \texttt{-r: gap extension penalty for the alignments in extension phase.[1]}
+-l: the minimum length of the local matches used for SDP.[11]
 
-  * \texttt{-l: the minimum length of the local matches used for SDP.[11]}
+-t: the number of threads used for multi-thread running.[1]
+```
 
-  * \texttt{-t: the number of threads used for multi-thread running.[1]}
