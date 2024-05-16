@@ -29,43 +29,30 @@ For a detailed installation process, please refer to the ParaHAT's GitHub docume
 
 ParaHAT consists of two parts: indexing and alignment.
 
-\textbf{Makefile.} 
+**Makefile.**
 
-\begin{enumerate}
+$ make clean
+$ make
 
-  \item[] \texttt{\$ make clean}
-  \item[] \texttt{\$ make}
-  
-\end{enumerate}
+**Indexing.**
 
-\textbf{Indexing.} 
+\$ ./ParaHAT-indexer [-k $k$-merSize] <HashIndexDir> <Reference>
 
-\begin{enumerate}
+**Alignment.**
 
-  \item[] \texttt{\$ ./ParaHAT-indexer [-k $k$-merSize] <HashIndexDir> <Reference>}
-  
-\end{enumerate}
+```c
+$ mpirun [-n nodeNumber] ./ParaHAT-aligner [-w windowsHits] [-m candidates] [-k kmerSize] [-a match] [-b mismatch]
+[-q gapOpen] [-r gapExtension] [-t threadNumber] <HashIndexDir> <ReadFile> <Reference>
+```
 
-\textbf{Alignment.} 
+### Parameters
 
-\begin{enumerate}
+The basic parameters remain consistent with the original rHAT algorithm. The numbers within square brackets represent default values.
 
-  \item[] \texttt{\$ mpirun [-n nodeNumber] ./ParaHAT-aligner [-w windowsHits] [-m candidates] [-k kmerSize] [-a match] [-b mismatch]
-[-q gapOpen] [-r gapExtension] [-t threadNumber] <HashIndexDir> <ReadFile> <Reference>}
-  
-\end{enumerate}
+**./ParaHAT-indexer:**
 
-\subsection{Parameters}
+-k: the size of the $k$-mers used for indexing in reference genome.[13]
 
-The basic parameters remain consistent with the original rHAT algorithm \cite{liu2016rhat}. The numbers within square brackets represent default values.
-
-\textbf{./ParaHAT-indexer:} 
-
-\begin{enumerate}
-
-  \item[(1)] \texttt{-k: the size of the $k$-mers used for indexing in reference genome.[13]}
-  
-\end{enumerate}
 
 \textbf{./PararHAT-aligner:} 
 
