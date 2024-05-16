@@ -56,21 +56,21 @@ The basic parameters remain consistent with the original rHAT algorithm. The num
 **./ParaHAT-indexer:**
 
 ```
--k: the size of the $k$-mers used for indexing in reference genome.[13]
+-k: the size of the $k$-mers used for indexing in reference genome. [13]
 ```
 
 **./PararHAT-aligner:**
 
 ```
 -n: the number of nodes used for multi-node running.
--w: the max allowed number of windows hit by a $k$-mer.[1000]
--m: the max number of candidates for extension.[5]
--k: the size of the $k$-mer used for generating short token matches in reads.[13]
--a: score of match for the alignments in extension phase.[1]
--b: mismatch penalty for the alignments in extension phase.[5]
--q: gap open penalty for the alignments in extension phase.[2]
--r: gap extension penalty for the alignments in extension phase.[1]
--l: the minimum length of the local matches used for SDP.[11]
--t: the number of threads used for multi-thread running.[1]
+-w: the max allowed number of windows hit by a $k$-mer. [1000]
+-m: the max number of candidates for extension. [5]
+-k: the size of the $k$-mer used for generating short token matches in reads. [13]
+-a: score of match for the alignments in extension phase. [1]
+-b: mismatch penalty for the alignments in extension phase. [5]
+-q: gap open penalty for the alignments in extension phase. [2]
+-r: gap extension penalty for the alignments in extension phase. [1]
+-l: the minimum length of the local matches used for SDP. [11]
+-t: the number of threads used for multi-thread running. [1]
 ```
 
