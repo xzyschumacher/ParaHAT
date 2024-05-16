@@ -39,7 +39,7 @@ $ make
 **Indexing.**
 
 ```c
-$ ./ParaHAT-indexer [-k $k$-merSize] <HashIndexDir> <Reference>
+$ ./ParaHAT-indexer [-k k-merSize] <HashIndexDir> <Reference>
 ```
 
 **Alignment.**
