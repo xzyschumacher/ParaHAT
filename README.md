@@ -3,3 +3,88 @@
 ## Introduction
 
 The birth of SMRT technology has resolved many limitations of second-generation sequencing, but it has also brought about an exponential increase in alignment data, as well as a higher error rate in sequencing. ParaHAT is a noise long-read alignment tool that employs multi-level parallel technology. It fully utilizes vector-level, thread-level, process-level, and heterogeneous parallelism to accelerate noise long-read alignment.
+
+## Summary
+
+ParaHAT integrates vector-level, thread-level, process-level, and heterogeneous parallelism to accelerate long-read sequence alignment. ParaHAT mainly focuses on parallelizing the rHAT algorithm without altering the original computational process. In the results, our parallel code achieves consistent results with the original rHAT code. The initial intention of ParaHAT is to explore the use of various parallel techniques to maximize program performance.
+
+## ParaHAT installation and usage
+
+Current version of ParaHAT needs to be run on Linux operating system.
+
+### Requrements
+
+ParaHAT is tested to work under:
+
+* Ubuntu 18.04
+* gcc 7.5.0
+* g++ 7.5.0
+* openmpi 2.1.6
+
+### Installation
+
+For a detailed installation process, please refer to the ParaHAT's GitHub documentation at \url{https://github.com/xzyschumacher/ParaHAT}
+
+### Usage
+
+ParaHAT consists of two parts: indexing and alignment.
+
+\textbf{Makefile.} 
+
+\begin{enumerate}
+
+  \item[] \texttt{\$ make clean}
+  \item[] \texttt{\$ make}
+  
+\end{enumerate}
+
+\textbf{Indexing.} 
+
+\begin{enumerate}
+
+  \item[] \texttt{\$ ./ParaHAT-indexer [-k $k$-merSize] <HashIndexDir> <Reference>}
+  
+\end{enumerate}
+
+\textbf{Alignment.} 
+
+\begin{enumerate}
+
+  \item[] \texttt{\$ mpirun [-n nodeNumber] ./ParaHAT-aligner [-w windowsHits] [-m candidates] [-k kmerSize] [-a match] [-b mismatch]
+[-q gapOpen] [-r gapExtension] [-t threadNumber] <HashIndexDir> <ReadFile> <Reference>}
+  
+\end{enumerate}
+
+\subsection{Parameters}
+
+The basic parameters remain consistent with the original rHAT algorithm \cite{liu2016rhat}. The numbers within square brackets represent default values.
+
+\textbf{./ParaHAT-indexer:} 
+
+\begin{enumerate}
+
+  \item[(1)] \texttt{-k: the size of the $k$-mers used for indexing in reference genome.[13]}
+  
+\end{enumerate}
+
+\textbf{./PararHAT-aligner:} 
+
+  * \texttt{-n: the number of nodes used for multi-node running.}
+
+  * \texttt{-w: the max allowed number of windows hit by a $k$-mer.[1000]}
+
+  * \texttt{-m: the max number of candidates for extension.[5]}
+
+  * \texttt{-k: the size of the $k$-mer used for generating short token matches in reads.[13]}
+
+  * \texttt{-a: score of match for the alignments in extension phase.[1]}
+
+  * \texttt{-b: mismatch penalty for the alignments in extension phase.[5]}
+
+  * \texttt{-q: gap open penalty for the alignments in extension phase.[2]}
+
+  * \texttt{-r: gap extension penalty for the alignments in extension phase.[1]}
+
+  * \texttt{-l: the minimum length of the local matches used for SDP.[11]}
+
+  * \texttt{-t: the number of threads used for multi-thread running.[1]}
