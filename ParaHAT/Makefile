@@ -11,8 +11,8 @@ INDSOURCES=whash.cpp genhash.cpp formh.cpp
 INDOBJECTS=$(INDSOURCES:.cpp=.o) $(KSWSOURCE:.c=.o)
 ALGNOBJECTS=$(ALGNSOURCES:.cpp=.o) $(KSWSOURCE:.c=.o)
 
-INDEXER=rHAT-indexer
-ALIGNER=rHAT-aligner
+INDEXER=ParaHAT-indexer
+ALIGNER=ParaHAT-aligner
 
 all: $(INDSOURCES) $(ALGNSOURCES) $(KSWSOURCE) $(ALIGNER) $(INDEXER)
 	
