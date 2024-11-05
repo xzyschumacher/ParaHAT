@@ -21,10 +21,6 @@ ParaHAT is tested to work under:
 * g++ 7.5.0
 * openmpi 2.1.6
 
-### Installation
-
-For a detailed installation process, please refer to the ParaHAT's GitHub documentation at https://github.com/xzyschumacher/ParaHAT
-
 ### Usage
 
 ParaHAT consists of two parts: indexing and alignment.
